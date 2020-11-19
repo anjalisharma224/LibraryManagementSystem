@@ -109,6 +109,7 @@ namespace LibraryManagementSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            //Login Button clicked
             try
             {
                 //step1: connection string
