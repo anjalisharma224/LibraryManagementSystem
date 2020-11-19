@@ -38,14 +38,12 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.userTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.rememberCheckBox = new System.Windows.Forms.CheckBox();
             this.clearbutton = new System.Windows.Forms.Button();
             this.forgotbutton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -73,30 +71,34 @@
             // 
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(146, 110);
+            this.label1.Location = new System.Drawing.Point(130, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 31);
+            this.label1.Size = new System.Drawing.Size(126, 31);
             this.label1.TabIndex = 2;
             this.label1.Text = "User Type";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(148, 159);
+            this.label2.Location = new System.Drawing.Point(130, 159);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 32);
+            this.label2.Size = new System.Drawing.Size(126, 32);
             this.label2.TabIndex = 3;
             this.label2.Text = "Username";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(148, 209);
+            this.label3.Location = new System.Drawing.Point(130, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 33);
+            this.label3.Size = new System.Drawing.Size(126, 33);
             this.label3.TabIndex = 4;
             this.label3.Text = "Password";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // loginButton
@@ -141,30 +143,6 @@
             this.userTypeComboBox.Size = new System.Drawing.Size(212, 28);
             this.userTypeComboBox.TabIndex = 10;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(143, 42);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(77, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label4.Location = new System.Drawing.Point(216, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(302, 33);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Library Mangement System";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
-            // 
             // rememberCheckBox
             // 
             this.rememberCheckBox.AutoSize = true;
@@ -200,16 +178,27 @@
             this.forgotbutton.UseVisualStyleBackColor = true;
             this.forgotbutton.Click += new System.EventHandler(this.forgotbutton_Click);
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label4.Location = new System.Drawing.Point(171, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(302, 33);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Library Mangement System";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
+            // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 450);
+            this.ClientSize = new System.Drawing.Size(662, 452);
             this.Controls.Add(this.forgotbutton);
             this.Controls.Add(this.clearbutton);
             this.Controls.Add(this.rememberCheckBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.userTypeComboBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
@@ -226,7 +215,6 @@
             this.Load += new System.EventHandler(this.LogInForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,10 +231,9 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.ComboBox userTypeComboBox;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox rememberCheckBox;
         private System.Windows.Forms.Button clearbutton;
         private System.Windows.Forms.Button forgotbutton;
+        private System.Windows.Forms.Label label4;
     }
 }

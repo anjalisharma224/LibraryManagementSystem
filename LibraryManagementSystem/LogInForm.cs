@@ -184,6 +184,11 @@ namespace LibraryManagementSystem
             LogInForm_Load_1(sender, e);
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
