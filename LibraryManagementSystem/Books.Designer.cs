@@ -28,24 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.bookNameTextbox = new System.Windows.Forms.TextBox();
+            this.authorNameTextbox = new System.Windows.Forms.TextBox();
+            this.publisherNameTextbox = new System.Windows.Forms.TextBox();
+            this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.addBookButton = new System.Windows.Forms.Button();
             this.updateBookButton = new System.Windows.Forms.Button();
             this.deleteBookButton = new System.Windows.Forms.Button();
             this.availableBookLists = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.noOfCopiesTextbox = new System.Windows.Forms.TextBox();
+            this.logindbDataSet = new LibraryManagementSystem.logindbDataSet();
+            this.bookTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookTblTableAdapter = new LibraryManagementSystem.logindbDataSetTableAdapters.BookTblTableAdapter();
+            this.bookIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noofcopiesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.availableBookLists)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logindbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookTblBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,34 +94,37 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Genre:";
             // 
-            // textBox1
+            // bookNameTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(163, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 22);
-            this.textBox1.TabIndex = 4;
+            this.bookNameTextbox.Location = new System.Drawing.Point(163, 69);
+            this.bookNameTextbox.Name = "bookNameTextbox";
+            this.bookNameTextbox.Size = new System.Drawing.Size(227, 22);
+            this.bookNameTextbox.TabIndex = 4;
             // 
-            // textBox2
+            // authorNameTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(163, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 22);
-            this.textBox2.TabIndex = 5;
+            this.authorNameTextbox.Location = new System.Drawing.Point(163, 108);
+            this.authorNameTextbox.Name = "authorNameTextbox";
+            this.authorNameTextbox.Size = new System.Drawing.Size(227, 22);
+            this.authorNameTextbox.TabIndex = 5;
             // 
-            // textBox3
+            // publisherNameTextbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(163, 142);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 22);
-            this.textBox3.TabIndex = 6;
+            this.publisherNameTextbox.Location = new System.Drawing.Point(163, 142);
+            this.publisherNameTextbox.Name = "publisherNameTextbox";
+            this.publisherNameTextbox.Size = new System.Drawing.Size(227, 22);
+            this.publisherNameTextbox.TabIndex = 6;
             // 
-            // comboBox1
+            // genreComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(163, 178);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(227, 24);
-            this.comboBox1.TabIndex = 7;
+            this.genreComboBox.FormattingEnabled = true;
+            this.genreComboBox.Items.AddRange(new object[] {
+            "Fiction",
+            "Non Fiction"});
+            this.genreComboBox.Location = new System.Drawing.Point(163, 178);
+            this.genreComboBox.Name = "genreComboBox";
+            this.genreComboBox.Size = new System.Drawing.Size(227, 24);
+            this.genreComboBox.TabIndex = 7;
             // 
             // addBookButton
             // 
@@ -121,6 +134,7 @@
             this.addBookButton.TabIndex = 8;
             this.addBookButton.Text = "Add Book";
             this.addBookButton.UseVisualStyleBackColor = true;
+            this.addBookButton.Click += new System.EventHandler(this.addBookButton_Click);
             // 
             // updateBookButton
             // 
@@ -130,6 +144,7 @@
             this.updateBookButton.TabIndex = 9;
             this.updateBookButton.Text = "Update Book";
             this.updateBookButton.UseVisualStyleBackColor = true;
+            this.updateBookButton.Click += new System.EventHandler(this.updateBookButton_Click);
             // 
             // deleteBookButton
             // 
@@ -142,38 +157,31 @@
             // 
             // availableBookLists
             // 
+            this.availableBookLists.AutoGenerateColumns = false;
             this.availableBookLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.availableBookLists.Location = new System.Drawing.Point(51, 374);
+            this.availableBookLists.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bookIdDataGridViewTextBoxColumn,
+            this.bookNameDataGridViewTextBoxColumn,
+            this.authorNameDataGridViewTextBoxColumn,
+            this.publisherNameDataGridViewTextBoxColumn,
+            this.genreDataGridViewTextBoxColumn,
+            this.noofcopiesDataGridViewTextBoxColumn});
+            this.availableBookLists.DataSource = this.bookTblBindingSource;
+            this.availableBookLists.Location = new System.Drawing.Point(12, 374);
             this.availableBookLists.Name = "availableBookLists";
             this.availableBookLists.RowHeadersWidth = 51;
             this.availableBookLists.RowTemplate.Height = 24;
-            this.availableBookLists.Size = new System.Drawing.Size(339, 150);
+            this.availableBookLists.Size = new System.Drawing.Size(437, 150);
             this.availableBookLists.TabIndex = 11;
             // 
-            // textBox4
+            // messageLabel
             // 
-            this.textBox4.Location = new System.Drawing.Point(163, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 22);
-            this.textBox4.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Book ID:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 337);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(342, 17);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Label to display add update delete success message";
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(48, 337);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(342, 17);
+            this.messageLabel.TabIndex = 25;
+            this.messageLabel.Text = "Label to display add update delete success message";
             // 
             // label7
             // 
@@ -184,38 +192,102 @@
             this.label7.TabIndex = 26;
             this.label7.Text = "No. Of Copies:";
             // 
-            // textBox5
+            // noOfCopiesTextbox
             // 
-            this.textBox5.Location = new System.Drawing.Point(163, 217);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 27;
+            this.noOfCopiesTextbox.Location = new System.Drawing.Point(163, 217);
+            this.noOfCopiesTextbox.Name = "noOfCopiesTextbox";
+            this.noOfCopiesTextbox.Size = new System.Drawing.Size(100, 22);
+            this.noOfCopiesTextbox.TabIndex = 27;
+            // 
+            // logindbDataSet
+            // 
+            this.logindbDataSet.DataSetName = "logindbDataSet";
+            this.logindbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bookTblBindingSource
+            // 
+            this.bookTblBindingSource.DataMember = "BookTbl";
+            this.bookTblBindingSource.DataSource = this.logindbDataSet;
+            // 
+            // bookTblTableAdapter
+            // 
+            this.bookTblTableAdapter.ClearBeforeFill = true;
+            // 
+            // bookIdDataGridViewTextBoxColumn
+            // 
+            this.bookIdDataGridViewTextBoxColumn.DataPropertyName = "Book_Id";
+            this.bookIdDataGridViewTextBoxColumn.HeaderText = "Book_Id";
+            this.bookIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.bookIdDataGridViewTextBoxColumn.Name = "bookIdDataGridViewTextBoxColumn";
+            this.bookIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bookNameDataGridViewTextBoxColumn
+            // 
+            this.bookNameDataGridViewTextBoxColumn.DataPropertyName = "Book_Name";
+            this.bookNameDataGridViewTextBoxColumn.HeaderText = "Book_Name";
+            this.bookNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.bookNameDataGridViewTextBoxColumn.Name = "bookNameDataGridViewTextBoxColumn";
+            this.bookNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // authorNameDataGridViewTextBoxColumn
+            // 
+            this.authorNameDataGridViewTextBoxColumn.DataPropertyName = "Author_Name";
+            this.authorNameDataGridViewTextBoxColumn.HeaderText = "Author_Name";
+            this.authorNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.authorNameDataGridViewTextBoxColumn.Name = "authorNameDataGridViewTextBoxColumn";
+            this.authorNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // publisherNameDataGridViewTextBoxColumn
+            // 
+            this.publisherNameDataGridViewTextBoxColumn.DataPropertyName = "Publisher_Name";
+            this.publisherNameDataGridViewTextBoxColumn.HeaderText = "Publisher_Name";
+            this.publisherNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.publisherNameDataGridViewTextBoxColumn.Name = "publisherNameDataGridViewTextBoxColumn";
+            this.publisherNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
+            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
+            this.genreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            this.genreDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // noofcopiesDataGridViewTextBoxColumn
+            // 
+            this.noofcopiesDataGridViewTextBoxColumn.DataPropertyName = "No_of_copies";
+            this.noofcopiesDataGridViewTextBoxColumn.HeaderText = "No_of_copies";
+            this.noofcopiesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.noofcopiesDataGridViewTextBoxColumn.Name = "noofcopiesDataGridViewTextBoxColumn";
+            this.noofcopiesDataGridViewTextBoxColumn.Width = 125;
             // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 546);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.noOfCopiesTextbox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.availableBookLists);
             this.Controls.Add(this.deleteBookButton);
             this.Controls.Add(this.updateBookButton);
             this.Controls.Add(this.addBookButton);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.genreComboBox);
+            this.Controls.Add(this.publisherNameTextbox);
+            this.Controls.Add(this.authorNameTextbox);
+            this.Controls.Add(this.bookNameTextbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Books";
             this.Text = "Books";
+            this.Load += new System.EventHandler(this.Books_Load);
             ((System.ComponentModel.ISupportInitialize)(this.availableBookLists)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logindbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookTblBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,18 +299,25 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox bookNameTextbox;
+        private System.Windows.Forms.TextBox authorNameTextbox;
+        private System.Windows.Forms.TextBox publisherNameTextbox;
+        private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.Button addBookButton;
         private System.Windows.Forms.Button updateBookButton;
         private System.Windows.Forms.Button deleteBookButton;
         private System.Windows.Forms.DataGridView availableBookLists;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox noOfCopiesTextbox;
+        private logindbDataSet logindbDataSet;
+        private System.Windows.Forms.BindingSource bookTblBindingSource;
+        private logindbDataSetTableAdapters.BookTblTableAdapter bookTblTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publisherNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noofcopiesDataGridViewTextBoxColumn;
     }
 }

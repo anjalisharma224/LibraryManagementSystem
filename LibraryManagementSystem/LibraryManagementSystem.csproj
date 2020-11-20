@@ -82,6 +82,11 @@
     <Compile Include="Books.Designer.cs">
       <DependentUpon>Books.cs</DependentUpon>
     </Compile>
+    <Compile Include="logindbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>logindbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RegisterationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +171,17 @@
     <EmbeddedResource Include="UserLogIn.resx">
       <DependentUpon>UserLogIn.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="logindbDataSet.xsc">
+      <DependentUpon>logindbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="logindbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>logindbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="logindbDataSet.xss">
+      <DependentUpon>logindbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
