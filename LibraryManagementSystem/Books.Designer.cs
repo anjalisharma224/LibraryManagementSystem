@@ -43,6 +43,8 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.availableBookLists)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +115,7 @@
             // 
             // addBookButton
             // 
-            this.addBookButton.Location = new System.Drawing.Point(51, 230);
+            this.addBookButton.Location = new System.Drawing.Point(51, 269);
             this.addBookButton.Name = "addBookButton";
             this.addBookButton.Size = new System.Drawing.Size(75, 46);
             this.addBookButton.TabIndex = 8;
@@ -122,7 +124,7 @@
             // 
             // updateBookButton
             // 
-            this.updateBookButton.Location = new System.Drawing.Point(188, 230);
+            this.updateBookButton.Location = new System.Drawing.Point(184, 269);
             this.updateBookButton.Name = "updateBookButton";
             this.updateBookButton.Size = new System.Drawing.Size(75, 46);
             this.updateBookButton.TabIndex = 9;
@@ -131,7 +133,7 @@
             // 
             // deleteBookButton
             // 
-            this.deleteBookButton.Location = new System.Drawing.Point(315, 230);
+            this.deleteBookButton.Location = new System.Drawing.Point(315, 269);
             this.deleteBookButton.Name = "deleteBookButton";
             this.deleteBookButton.Size = new System.Drawing.Size(75, 46);
             this.deleteBookButton.TabIndex = 10;
@@ -141,7 +143,7 @@
             // availableBookLists
             // 
             this.availableBookLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.availableBookLists.Location = new System.Drawing.Point(51, 341);
+            this.availableBookLists.Location = new System.Drawing.Point(51, 374);
             this.availableBookLists.Name = "availableBookLists";
             this.availableBookLists.RowHeadersWidth = 51;
             this.availableBookLists.RowTemplate.Height = 24;
@@ -167,17 +169,35 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 306);
+            this.label6.Location = new System.Drawing.Point(48, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(342, 17);
             this.label6.TabIndex = 25;
             this.label6.Text = "Label to display add update delete success message";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(48, 217);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "No. Of Copies:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(163, 217);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 27;
+            // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 503);
+            this.ClientSize = new System.Drawing.Size(461, 546);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
@@ -218,5 +238,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
