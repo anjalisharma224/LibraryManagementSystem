@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.Controller;
+using LibraryManagementSystem.Classes;
 
 namespace LibraryManagementSystem
 {
@@ -22,10 +24,10 @@ namespace LibraryManagementSystem
 
         private void userLogInButton_Click(object sender, EventArgs e)
         {
-            UserLogIn afterUserLogIn = new UserLogIn();
+           /* UserLogIn afterUserLogIn = new UserLogIn();
             //if role is student then open student page or open librarian page
             //afterUserLogIn.MdiParent =MainForm;
-            afterUserLogIn.Show();
+            afterUserLogIn.Show();*/
         }
 
         private void adminLogInButton_Click(object sender, EventArgs e)
@@ -109,46 +111,73 @@ namespace LibraryManagementSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            //Login Button clicked
             try
             {
-                //step1: connection string
-                string myNwConnectionstring = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.ConnString"].ConnectionString;
 
                 String usertype = userTypeComboBox.Text;
                 String username = usernameTextBox.Text;
                 String password = passwordTextBox.Text;
 
-                string nwSQLString = "Select * from Login where usertype='" + usertype + "' and username ='" + username + "' and password ='" + password + "';";
+                User user = new User(username, password, usertype);
+                user.Login();
 
-                SqlConnection myNwConnection = new System.Data.SqlClient.SqlConnection(myNwConnectionstring);
-
-                myNwConnection.Open();
-
-
-                //step 5: Adapter
-                SqlCommand cmd = new SqlCommand(nwSQLString, myNwConnection);
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("Login Successful");
-                }
-                else
-                {
-                    MessageBox.Show("Login Failure\nPlease try Again");
-                }
-
-
-                //step7: close connection
-                myNwConnection.Close();
-
-
+                MessageBox.Show("Login Successful");
             }
+
+            /* Boolean b = inter.getdata(username, password, usertype);
+
+             if (b)
+             {
+                 MessageBox.Show("Login Successful");
+                 if (userTypeComboBox.SelectedIndex == 1)
+                 {
+                     AdminLogIn obj = new AdminLogIn();
+                     obj.Show();
+                     this.Hide();
+                 }
+                 else
+                 {
+                     if (userTypeComboBox.SelectedIndex == 2)
+                     {
+                         LibrarianLogIn obj1 = new LibrarianLogIn();
+                         obj1.Show();
+                         this.Hide();
+                     }
+
+                     else
+                     {
+                         if (userTypeComboBox.SelectedIndex == 3)
+                         {
+                             UserLogIn obj2 = new UserLogIn();
+                             obj2.Show();
+                             this.Hide();
+                         }
+                         else
+                         {
+                             if (userTypeComboBox.SelectedIndex == 4)
+                             {
+                                 UserLogIn obj3 = new UserLogIn();
+                                 obj3.Show();
+                                 this.Hide();
+                             }
+                         }
+
+                     }
+                 }
+             }
+             else
+             {
+                 MessageBox.Show("Login Failure\nPlease try Again");
+             }
+
+
+         }*/
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
             }
+
         }
 
         private void label5_Click_1(object sender, EventArgs e)

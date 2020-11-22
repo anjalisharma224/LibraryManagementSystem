@@ -82,6 +82,9 @@
     <Compile Include="Books.Designer.cs">
       <DependentUpon>Books.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\IUser.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Controller\IntermediaryClass.cs" />
     <Compile Include="logindbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,6 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>logindbDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataAccessClass.cs" />
     <Compile Include="RegisterationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,12 +135,6 @@
     <Compile Include="LibrarianLogIn.Designer.cs">
       <DependentUpon>LibrarianLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserLogIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserLogIn.Designer.cs">
-      <DependentUpon>UserLogIn.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,9 +170,6 @@
     </Compile>
     <EmbeddedResource Include="LibrarianLogIn.resx">
       <DependentUpon>LibrarianLogIn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserLogIn.resx">
-      <DependentUpon>UserLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="logindbDataSet.xsc">
       <DependentUpon>logindbDataSet.xsd</DependentUpon>
@@ -232,5 +227,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
